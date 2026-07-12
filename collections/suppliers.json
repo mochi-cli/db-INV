@@ -1,0 +1,10 @@
+{
+  "name": "suppliers",
+  "titleField": "name",
+  "fields": {
+    "name": "string",
+    "contact": "string",
+    "phone": "string",
+    "note": "text"
+  }
+}

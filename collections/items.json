@@ -1,0 +1,13 @@
+{
+  "name": "items",
+  "titleField": "name",
+  "fields": {
+    "sku": "string",
+    "name": "string",
+    "category": "string",
+    "quantity": "number",
+    "unit_cost": "number",
+    "location": "string",
+    "status": "string"
+  }
+}

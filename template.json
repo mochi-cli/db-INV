@@ -1,0 +1,49 @@
+{
+  "name": "inventory",
+  "displayName": "Inventory",
+  "description": "Inventory workspace for items, stock movements, and suppliers.",
+  "version": "0.1.0",
+  "mochikit": ">=0.1.0",
+  "collections": [
+    {
+      "name": "items",
+      "schema": {
+        "titleField": "name",
+        "fields": {
+          "sku": "string",
+          "name": "string",
+          "category": "string",
+          "quantity": "number",
+          "unit_cost": "number",
+          "location": "string",
+          "status": "string"
+        }
+      }
+    },
+    {
+      "name": "stock_movements",
+      "schema": {
+        "titleField": "movement_no",
+        "fields": {
+          "movement_no": "string",
+          "sku": "string",
+          "type": "in|out|adjust",
+          "quantity": "number",
+          "reason": "text"
+        }
+      }
+    },
+    {
+      "name": "suppliers",
+      "schema": {
+        "titleField": "name",
+        "fields": {
+          "name": "string",
+          "contact": "string",
+          "phone": "string",
+          "note": "text"
+        }
+      }
+    }
+  ]
+}
