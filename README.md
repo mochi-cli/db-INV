@@ -2,11 +2,20 @@
 
 This repository defines the `inventory` MochiKit workspace template.
 
-## Collections
+## Tables
 
-- `items`: SKU, item name, category, quantity, cost, location, and status
-- `stock_movements`: stock in, out, and adjustment events
-- `suppliers`: supplier contact information and notes
+- `Suppliers`
+- `Products`
+- `Inventory`
+- `Shipments`
+- `Order_History`
+
+## Relationships
+
+- Suppliers can have many shipments.
+- Products have one inventory record.
+- Products can have many shipments.
+- Products can have many order history records.
 
 ## Use
 

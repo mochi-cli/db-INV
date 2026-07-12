@@ -1,0 +1,10 @@
+{
+  "name": "Inventory",
+  "titleField": "inventory_id",
+  "fields": {
+    "inventory_id": "primary_key",
+    "product_id": "foreign_key:Products(product_id)",
+    "quantity_available": "number",
+    "last_stock_update": "timestamp"
+  }
+}

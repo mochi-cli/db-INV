@@ -1,0 +1,10 @@
+{
+  "name": "Products",
+  "titleField": "product_name",
+  "fields": {
+    "product_id": "primary_key",
+    "product_name": "string",
+    "unit_price": "number",
+    "quantity_in_stock": "number"
+  }
+}

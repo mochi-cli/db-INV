@@ -1,0 +1,11 @@
+{
+  "name": "Shipments",
+  "titleField": "shipment_id",
+  "fields": {
+    "shipment_id": "primary_key",
+    "product_id": "foreign_key:Products(product_id)",
+    "supplier_id": "foreign_key:Suppliers(supplier_id)",
+    "quantity_shipped": "number",
+    "shipment_date": "date"
+  }
+}

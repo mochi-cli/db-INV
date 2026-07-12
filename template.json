@@ -1,49 +1,78 @@
 {
   "name": "inventory",
   "displayName": "Inventory",
-  "description": "Inventory workspace for items, stock movements, and suppliers.",
-  "version": "0.1.0",
+  "description": "Inventory workspace with Suppliers, Products, Inventory, Shipments, and Order_History.",
+  "version": "0.2.0",
   "mochikit": ">=0.1.0",
   "collections": [
     {
-      "name": "items",
+      "name": "Suppliers",
       "schema": {
-        "titleField": "name",
+        "titleField": "supplier_name",
         "fields": {
-          "sku": "string",
-          "name": "string",
-          "category": "string",
-          "quantity": "number",
-          "unit_cost": "number",
-          "location": "string",
-          "status": "string"
+          "supplier_id": "primary_key",
+          "supplier_name": "string",
+          "supplier_contact": "string",
+          "supplier_address": "text"
         }
       }
     },
     {
-      "name": "stock_movements",
+      "name": "Products",
       "schema": {
-        "titleField": "movement_no",
+        "titleField": "product_name",
         "fields": {
-          "movement_no": "string",
-          "sku": "string",
-          "type": "in|out|adjust",
-          "quantity": "number",
-          "reason": "text"
+          "product_id": "primary_key",
+          "product_name": "string",
+          "unit_price": "number",
+          "quantity_in_stock": "number"
         }
       }
     },
     {
-      "name": "suppliers",
+      "name": "Inventory",
       "schema": {
-        "titleField": "name",
+        "titleField": "inventory_id",
         "fields": {
-          "name": "string",
-          "contact": "string",
-          "phone": "string",
-          "note": "text"
+          "inventory_id": "primary_key",
+          "product_id": "foreign_key:Products(product_id)",
+          "quantity_available": "number",
+          "last_stock_update": "timestamp"
+        }
+      }
+    },
+    {
+      "name": "Shipments",
+      "schema": {
+        "titleField": "shipment_id",
+        "fields": {
+          "shipment_id": "primary_key",
+          "product_id": "foreign_key:Products(product_id)",
+          "supplier_id": "foreign_key:Suppliers(supplier_id)",
+          "quantity_shipped": "number",
+          "shipment_date": "date"
+        }
+      }
+    },
+    {
+      "name": "Order_History",
+      "schema": {
+        "titleField": "order_id",
+        "fields": {
+          "order_id": "primary_key",
+          "product_id": "foreign_key:Products(product_id)",
+          "order_date": "date",
+          "order_quantity": "number",
+          "total_cost": "number",
+          "status": "Pending|Delivered|Cancelled"
         }
       }
     }
+  ],
+  "relationships": [
+    "Suppliers and Shipments: One-to-Many",
+    "Products and Inventory: One-to-One",
+    "Products and Shipments: One-to-Many",
+    "Products and Order_History: One-to-Many"
   ]
 }

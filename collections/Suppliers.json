@@ -1,0 +1,10 @@
+{
+  "name": "Suppliers",
+  "titleField": "supplier_name",
+  "fields": {
+    "supplier_id": "primary_key",
+    "supplier_name": "string",
+    "supplier_contact": "string",
+    "supplier_address": "text"
+  }
+}

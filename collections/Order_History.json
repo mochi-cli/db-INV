@@ -1,0 +1,12 @@
+{
+  "name": "Order_History",
+  "titleField": "order_id",
+  "fields": {
+    "order_id": "primary_key",
+    "product_id": "foreign_key:Products(product_id)",
+    "order_date": "date",
+    "order_quantity": "number",
+    "total_cost": "number",
+    "status": "Pending|Delivered|Cancelled"
+  }
+}
