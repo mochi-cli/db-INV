@@ -2,18 +2,26 @@
   "name": "inventory",
   "displayName": "Inventory",
   "description": "Inventory workspace with Suppliers, Products, Inventory, Shipments, and Order_History.",
-  "version": "0.2.0",
-  "mochikit": ">=0.1.0",
+  "version": "0.2.1",
+  "mochi-cli": ">=0.1.0",
   "collections": [
     {
       "name": "Suppliers",
       "schema": {
         "titleField": "supplier_name",
         "fields": {
-          "supplier_id": "primary_key",
-          "supplier_name": "string",
-          "supplier_contact": "string",
-          "supplier_address": "text"
+          "supplier_id": {
+            "type": "primary_key"
+          },
+          "supplier_name": {
+            "type": "string"
+          },
+          "supplier_contact": {
+            "type": "string"
+          },
+          "supplier_address": {
+            "type": "text"
+          }
         }
       }
     },
@@ -22,10 +30,18 @@
       "schema": {
         "titleField": "product_name",
         "fields": {
-          "product_id": "primary_key",
-          "product_name": "string",
-          "unit_price": "number",
-          "quantity_in_stock": "number"
+          "product_id": {
+            "type": "primary_key"
+          },
+          "product_name": {
+            "type": "string"
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "quantity_in_stock": {
+            "type": "number"
+          }
         }
       }
     },
@@ -34,10 +50,22 @@
       "schema": {
         "titleField": "inventory_id",
         "fields": {
-          "inventory_id": "primary_key",
-          "product_id": "foreign_key:Products(product_id)",
-          "quantity_available": "number",
-          "last_stock_update": "timestamp"
+          "inventory_id": {
+            "type": "primary_key"
+          },
+          "product_id": {
+            "type": "foreign_key",
+            "relation": {
+              "collection": "Products",
+              "field": "product_id"
+            }
+          },
+          "quantity_available": {
+            "type": "number"
+          },
+          "last_stock_update": {
+            "type": "timestamp"
+          }
         }
       }
     },
@@ -46,11 +74,29 @@
       "schema": {
         "titleField": "shipment_id",
         "fields": {
-          "shipment_id": "primary_key",
-          "product_id": "foreign_key:Products(product_id)",
-          "supplier_id": "foreign_key:Suppliers(supplier_id)",
-          "quantity_shipped": "number",
-          "shipment_date": "date"
+          "shipment_id": {
+            "type": "primary_key"
+          },
+          "product_id": {
+            "type": "foreign_key",
+            "relation": {
+              "collection": "Products",
+              "field": "product_id"
+            }
+          },
+          "supplier_id": {
+            "type": "foreign_key",
+            "relation": {
+              "collection": "Suppliers",
+              "field": "supplier_id"
+            }
+          },
+          "quantity_shipped": {
+            "type": "number"
+          },
+          "shipment_date": {
+            "type": "date"
+          }
         }
       }
     },
@@ -59,12 +105,41 @@
       "schema": {
         "titleField": "order_id",
         "fields": {
-          "order_id": "primary_key",
-          "product_id": "foreign_key:Products(product_id)",
-          "order_date": "date",
-          "order_quantity": "number",
-          "total_cost": "number",
-          "status": "Pending|Delivered|Cancelled"
+          "order_id": {
+            "type": "primary_key"
+          },
+          "product_id": {
+            "type": "foreign_key",
+            "relation": {
+              "collection": "Products",
+              "field": "product_id"
+            }
+          },
+          "order_date": {
+            "type": "date"
+          },
+          "order_quantity": {
+            "type": "number"
+          },
+          "total_cost": {
+            "type": "number"
+          },
+          "status": {
+            "type": "singleSelect",
+            "options": {
+              "choices": [
+                {
+                  "name": "Pending"
+                },
+                {
+                  "name": "Delivered"
+                },
+                {
+                  "name": "Cancelled"
+                }
+              ]
+            }
+          }
         }
       }
     }

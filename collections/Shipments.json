@@ -2,10 +2,28 @@
   "name": "Shipments",
   "titleField": "shipment_id",
   "fields": {
-    "shipment_id": "primary_key",
-    "product_id": "foreign_key:Products(product_id)",
-    "supplier_id": "foreign_key:Suppliers(supplier_id)",
-    "quantity_shipped": "number",
-    "shipment_date": "date"
+    "shipment_id": {
+      "type": "primary_key"
+    },
+    "product_id": {
+      "type": "foreign_key",
+      "relation": {
+        "collection": "Products",
+        "field": "product_id"
+      }
+    },
+    "supplier_id": {
+      "type": "foreign_key",
+      "relation": {
+        "collection": "Suppliers",
+        "field": "supplier_id"
+      }
+    },
+    "quantity_shipped": {
+      "type": "number"
+    },
+    "shipment_date": {
+      "type": "date"
+    }
   }
 }

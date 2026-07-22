@@ -2,9 +2,17 @@
   "name": "Suppliers",
   "titleField": "supplier_name",
   "fields": {
-    "supplier_id": "primary_key",
-    "supplier_name": "string",
-    "supplier_contact": "string",
-    "supplier_address": "text"
+    "supplier_id": {
+      "type": "primary_key"
+    },
+    "supplier_name": {
+      "type": "string"
+    },
+    "supplier_contact": {
+      "type": "string"
+    },
+    "supplier_address": {
+      "type": "text"
+    }
   }
 }

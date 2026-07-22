@@ -2,9 +2,21 @@
   "name": "Inventory",
   "titleField": "inventory_id",
   "fields": {
-    "inventory_id": "primary_key",
-    "product_id": "foreign_key:Products(product_id)",
-    "quantity_available": "number",
-    "last_stock_update": "timestamp"
+    "inventory_id": {
+      "type": "primary_key"
+    },
+    "product_id": {
+      "type": "foreign_key",
+      "relation": {
+        "collection": "Products",
+        "field": "product_id"
+      }
+    },
+    "quantity_available": {
+      "type": "number"
+    },
+    "last_stock_update": {
+      "type": "timestamp"
+    }
   }
 }

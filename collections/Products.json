@@ -2,9 +2,17 @@
   "name": "Products",
   "titleField": "product_name",
   "fields": {
-    "product_id": "primary_key",
-    "product_name": "string",
-    "unit_price": "number",
-    "quantity_in_stock": "number"
+    "product_id": {
+      "type": "primary_key"
+    },
+    "product_name": {
+      "type": "string"
+    },
+    "unit_price": {
+      "type": "number"
+    },
+    "quantity_in_stock": {
+      "type": "number"
+    }
   }
 }

@@ -20,7 +20,7 @@ This repository defines the `inventory` MochiKit workspace template.
 ## Use
 
 ```bash
-mochikit init --template inventory
+mochi-cli init --template inventory
 ```
 
 MochiKit reads this template through its template registry.
